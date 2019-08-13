@@ -1,4 +1,4 @@
-import os, asyncio
+import os, asyncio, re
 
 try:
 	import pyrogram
@@ -33,7 +33,7 @@ print("""
 | |___| ( (/ /| ( (__| |_| | | | ( (/ / 
  \______|\____)_|\____)___/|_|_|_|\____)                                  
 """)
-print("You need to register to get app_id and api_hash in here: https://my.telegram.org/apps")
+print("You need to register to get app_id and api_hash in here:\nhttps://my.telegram.org/apps")
 input("Press any key to continue")
 
 
@@ -69,7 +69,7 @@ def fill_api():
 
 def session_maker(createbot, api_id, app_hash):
 	clear()
-	if pyrogram.__version__.split(".")[-1] in ("asyncio", "asyncio-dev"):
+	if re.search("asyncio", pyrogram.__version__):
 		if createbot == 1:
 			app = pyrogram.Client("my", api_id=api_id, api_hash=app_hash)
 			ses = "my.session"
