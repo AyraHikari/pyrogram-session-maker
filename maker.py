@@ -44,7 +44,7 @@ def initial_selection(api_id, app_hash):
 		print("1 = user bot")
 		print("2 = real bot")
 		createbot = input("[1/2] ")
-		if str(createbot).isdigit():
+		if str(createbot).isdigit() and int(createbot) in (1, 2):
 			createbot = int(createbot)
 			break
 		print("Invaild selection!\n")
